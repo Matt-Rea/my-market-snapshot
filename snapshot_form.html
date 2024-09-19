@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Snapshot Form</title>
+</head>
+<body>
+    <h1>Request Your Free Market Snapshot!</h1>
+    <form id="snapshotForm">
+        <label for="suburb">Suburb:</label>
+        <input type="text" id="suburb" required><br><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" required><br><br>
+
+        <label for="postcode">Postcode:</label>
+        <input type="text" id="postcode" required><br><br>
+
+        <button type="submit">Request My Snapshot!</button>
+    </form>
+
+    <script>
+        document.getElementById('snapshotForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const suburb = document.getElementById('suburb').value;
+            const state = document.getElementById('state').value;
+            const postcode = document.getElementById('postcode').value;
+
+            // Generate the URL
+            const url = `https://www.domain.com.au/suburb-profile/${suburb.toLowerCase()}-${state.toLowerCase()}-${postcode}`;
+
+            // Redirect to the generated URL
+            window.location.href = url; // Redirects the user to the new URL
+        });
+    </script>
+</body>
+</html>
